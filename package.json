@@ -1,0 +1,21 @@
+{
+  "name": "dreamplace",
+  "private": true,
+  "version": "1.0.0",
+  "description": "NovaNest - local stationery, toys & gifts e-commerce (storefront + admin)",
+  "workspaces": [
+    "server",
+    "web",
+    "admin"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web,admin -c cyan,magenta,yellow \"npm run dev -w server\" \"npm run dev -w web\" \"npm run dev -w admin\"",
+    "build": "npm run build -w web && npm run build -w admin",
+    "start": "npm run start -w server",
+    "seed": "npm run seed -w server",
+    "test": "npm test -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5"
+  }
+}
